@@ -30,7 +30,11 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return Inertia::render('Home');
+});
+
+Route::get('/', function () {
+    return Inertia::render('Coming-Soon');
 });
 
