@@ -3,6 +3,14 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Project;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ComingSoonController;
+use App\Http\Controllers\HomepageController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,17 +32,12 @@ Route::get('/welcome', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
 
-Route::get('/home', function () {
-    return Inertia::render('Home');
-});
+Route::get('/', HomepageController::class)->name('home');
 
-Route::get('/', function () {
-    return Inertia::render('Coming-Soon');
-});
+Route::get('/coming-soon', ComingSoonController::class)->name('coming-soon');
 

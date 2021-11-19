@@ -1,6 +1,6 @@
 import { createMedia } from '@artsy/fresnel'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import { Component } from 'react'
 import {
   Button,
   Container,
@@ -15,6 +15,7 @@ import {
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
+import ProjectComponent from './Project'
 
 const { AvatarImage } = () => (
     <Image src='/assets/images/katrina.png' />
@@ -187,7 +188,9 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const HomepageLayout = () => (
+
+const HomepageLayout = (props) => (
+
   <ResponsiveContainer>
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
@@ -227,39 +230,7 @@ const HomepageLayout = () => (
           <a href='#'>Projects</a>
         </Divider>
 
-    <Segment style={{ padding: '8em 0em' }} vertical>
-      <Container text>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-         Test Project
-        </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Aute Lorem dolor occaecat fugiat.Incididunt dolore anim officia sint ut officia magna laboris. Magna id pariatur tempor fugiat do laboris. Eiusmod voluptate nisi velit dolore. Reprehenderit amet aute qui minim sit sint ex non voluptate proident esse adipisicing. Tempor veniam Lorem cillum quis reprehenderit elit. Pariatur Lorem laborum exercitation excepteur. Cillum consequat amet ex officia culpa quis anim ut.
-        </p>
-        <Button as='a' size='large'>
-          Built with
-        </Button>
-
-        <Divider
-          as='h4'
-          className='header'
-          horizontal
-          style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-        >
-          <a href='#'></a>
-        </Divider>
-
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Test Project 2
-        </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Lorem non irure deserunt sit duis duis aute tempor excepteur magna. Et elit ullamco nulla duis tempor irure sint esse. Nulla ex in aute aliqua nostrud consequat anim. Velit tempor est excepteur consequat quis pariatur nulla nulla est occaecat occaecat. Aliquip magna do sit sunt dolore. Esse laboris adipisicing reprehenderit mollit incididunt adipisicing.
-        </p>
-        <Button as='a' size='large'>
-          Built with
-        </Button>
-      </Container>
-    </Segment>
-
+        <ProjectComponent title={props.title} description={props.description} language={props.language} />
 
     <Segment style={{ padding: '0em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
@@ -296,3 +267,4 @@ const HomepageLayout = () => (
 )
 
 export default HomepageLayout
+

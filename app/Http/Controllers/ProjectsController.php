@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 
+
 class ProjectsController extends Controller
 {
-    public function show(Project $project)
+    public function index()
     {
-        return Inertia::render('Project', [
-            'project' => $project->only('id', 'title', 'language', 'description'),
-        ]);
+        $projects = Project::active()
+            ->orderById()
+            ->get()
+            ->only('id', 'title', 'description','language');
 
+        return Inertia::render('Projects', [
+            'projects' => $projects
+        ]);
     }
 }
