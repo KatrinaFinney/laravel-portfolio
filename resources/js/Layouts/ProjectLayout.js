@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function ProjectLayout({children}) {
+export default function ProjectLayout({ children }) {
     return (
         <main>
             <article>{children}</article>
         </main>
-    )
+    );
 }
